@@ -3,13 +3,22 @@ def partial_apply(func, word: str):
         return func(word, args[0])
     return inner
 
+
 def greet(name, surname):
     return f'Hello, {name} {surname}!'
+
+
+def flip(func):
+    def inner(*args):
+        return func(args[1], args[0])
+    return inner
 
 
 def main():
     f = partial_apply(greet, 'Dorian')
     print(f('Grey'))
+    f = flip(greet)
+    print(f('Dorian', 'Grey'))
 
     return
 

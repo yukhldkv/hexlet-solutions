@@ -6,8 +6,8 @@ def get_hidden_files_count(node):
     if is_file(node) and get_name(node).startswith("."):
         return 1
     children = get_children(node)
-    empty_files = list(map(get_hidden_files_count, children))
-    return sum(empty_files)
+    hidden_files = list(map(get_hidden_files_count, children))
+    return sum(hidden_files)
 
 
 def main():

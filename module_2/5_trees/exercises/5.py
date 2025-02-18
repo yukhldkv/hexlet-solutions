@@ -22,7 +22,6 @@ def downcase_file_names(node):
             return mkfile(name, new_meta)
         elif is_directory(node):
             return downcase_file_names(node)
-        return node
 
     new_children = list(map(downcase_names, children))
     new_meta = copy.deepcopy(get_meta(node))
